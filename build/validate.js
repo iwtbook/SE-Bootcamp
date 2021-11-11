@@ -25,26 +25,20 @@ async function getFiles(dir) {
   return Array.prototype.concat(...files);
 }
 
-getFiles('src').then(srcFiles => {
-  srcFiles.forEach(async file => {
-    const fileExt = file.split('.').pop();
-    if (fileExt != 'html' && fileExt != 'HTML') return;
-
+getFiles('src').then(async srcFiles => {
+  for (let i = 0; i < srcFiles.length; i++) {
+    const fileExt = srcFiles[i].split('.').pop();
+    if (fileExt != 'html' && fileExt != 'HTML') continue;
     // Grab the HTML string from the file
-    validatorOptions.data = fs.readFileSync(file, 'utf8');
-
+    validatorOptions.data = fs.readFileSync(srcFiles[i], 'utf8');
     try {
       const result = await validator(validatorOptions);
       if (result.isValid) {
-        console.log('**********       Passed!       **********');
-        console.log("**********                     **********");
-        console.log("********** Validation Finished **********\n");
-        process.exit(0);
+        console.log(`Passed - ${srcFiles[i]}`);
       } else {
+        console.log(`Rejected - ${srcFiles[i]}`);
         console.log('******* Validation Error Detected *******');
         console.log(result);
-        console.log("**********                     **********");
-        console.log("**********  Validation Failed  **********\n");
         process.exit(1);
       }
     } catch (error) {
@@ -54,5 +48,7 @@ getFiles('src').then(srcFiles => {
       console.log("**********  Validation Failed  **********\n");
       process.exit(1);
     }
-  });
+  }
+  console.log("**********                     **********");
+  console.log("*********  Validation Complete  *********\n");
 });
