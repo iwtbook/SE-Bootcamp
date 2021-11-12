@@ -1,8 +1,9 @@
 {
   "scripts": {
-    "build": "npm run format && npm run validate && npm run populate-template && npm run minify",
+    "build": "npm run format && npm run validate && npm run grammar && npm run populate-template && npm run minify",
     "create-dist": "node build/create-dist.js",
     "format": "npx prettier --write src/",
+    "grammar": "node build/grammar.js",
     "lint": "sh ./node_modules/.bin/eslint src",
     "minify": "node build/minify.js",
     "populate-template": "node build/populate-template.js",
@@ -21,6 +22,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
     "fs-extra": "^10.0.0",
+    "gramma": "^1.6.0",
     "handlebars": "^4.7.7",
     "html-minifier": "^4.0.0",
     "pre-commit": "^1.2.2",

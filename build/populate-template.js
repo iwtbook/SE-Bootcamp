@@ -27,7 +27,7 @@ let pendingRecursive = {};
 function translateObject(object, fromLang, toLang, file, callback) {
   pendingRecursive[toLang][file] += 1;
   Object.keys(object).forEach(key => {
-    if (typeof val == 'object') {
+    if (typeof object[key] == 'object') {
       translateObject(object[key], fromLang, toLang, file, callback);
     } else {
       translate(object[key], fromLang, toLang).then(res => {
