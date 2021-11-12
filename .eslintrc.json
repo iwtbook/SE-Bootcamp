@@ -9,7 +9,8 @@
     "prettier"
   ],
   "ignorePatterns": [
-    "build/*.js"
+    "build/*.js",
+    "build/*/*.js"
   ],
   "parserOptions": {
     "ecmaVersion": "latest"

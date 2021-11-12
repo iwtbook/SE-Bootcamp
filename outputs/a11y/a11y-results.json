@@ -1,0 +1,22 @@
+[
+  {
+    "documentTitle": "SE - Boot camp",
+    "pageUrl": "http://127.0.0.1:5500/dist/en/",
+    "issues": []
+  },
+  {
+    "documentTitle": "SE - Boot Camp",
+    "pageUrl": "http://127.0.0.1:5500/dist/es/",
+    "issues": []
+  },
+  {
+    "documentTitle": "SE - Boot Camp",
+    "pageUrl": "http://127.0.0.1:5500/dist/de/",
+    "issues": []
+  },
+  {
+    "documentTitle": "SE - Camp d'entraînement",
+    "pageUrl": "http://127.0.0.1:5500/dist/fr/",
+    "issues": []
+  }
+]

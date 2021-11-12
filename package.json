@@ -1,9 +1,12 @@
 {
+  "author": "Camdyn Rasque <crasque@pint.com>",
   "scripts": {
-    "build": "npm run format && npm run validate && npm run grammar && npm run populate-template && npm run minify",
+    "a11y": "node build/a11y.js",
+    "build": "npm run format && npm run validate && npm run grammar && npm run populate-template && npm run minify && npm run a11y && npm run lighthouse",
     "create-dist": "node build/create-dist.js",
     "format": "npx prettier --write src/",
     "grammar": "node build/grammar.js",
+    "lighthouse": "node build/lighthouse.js",
     "lint": "sh ./node_modules/.bin/eslint src",
     "minify": "node build/minify.js",
     "populate-template": "node build/populate-template.js",
@@ -21,16 +24,16 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
+    "extended-google-translate-api": "^2.0.0",
     "fs-extra": "^10.0.0",
     "gramma": "^1.6.0",
     "handlebars": "^4.7.7",
     "html-minifier": "^4.0.0",
+    "html-validator": "^5.1.17",
+    "lighthouse": "^8.6.0",
+    "pa11y": "^6.1.0",
     "pre-commit": "^1.2.2",
     "prettier": "2.4.1",
     "uglify-js": "^3.14.3"
-  },
-  "dependencies": {
-    "extended-google-translate-api": "^2.0.0",
-    "html-validator": "^5.1.17"
   }
 }
